@@ -8,13 +8,13 @@ int main(int argc,char *argv[])
     double start, stop;
     int i, j, k, l;
     int *a, *b, *c, *buffer, *ans;
-    int size = 4;
+    int size = 10;
     int rank, numprocs, line;
-
+    
     MPI_Init(NULL,NULL);//MPI Initialize
     MPI_Comm_rank(MPI_COMM_WORLD,&rank);//获得当前进程号
     MPI_Comm_size(MPI_COMM_WORLD,&numprocs);//获得进程个数
-
+    
     line = size/numprocs;//将数据分为(进程数)个块,主进程也要处理数据
     a = (int*)malloc(sizeof(int)*size*size);
     b = (int*)malloc(sizeof(int)*size*size);
